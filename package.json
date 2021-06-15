@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "lint": "npm run lint-eslint && npm run lint-stylelint",
     "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
-    "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "ie >= 9",
+    "not op_mini all"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -38,10 +46,17 @@
   },
   "homepage": "https://github.com/Mamba-Dong/react-ts#readme",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-react": "^7.14.5",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
+    "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.6",
     "eslint": "^7.28.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -51,15 +66,36 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^33.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
     "husky": "^6.0.0",
+    "less": "^4.1.1",
+    "less-loader": "^9.0.0",
     "lint-staged": "^11.0.0",
+    "node-sass": "^6.0.0",
+    "postcss": "^8.3.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^5.3.0",
+    "postcss-normalize": "^10.0.0",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.1",
+    "sass-loader": "^12.0.0",
+    "style-loader": "^2.0.0",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
     "stylelint-order": "^4.1.0",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

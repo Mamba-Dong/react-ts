@@ -48,4 +48,5 @@ module.exports = {
       },
     ],
   },
+  // 'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
 }
